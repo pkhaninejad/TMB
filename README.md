@@ -23,7 +23,7 @@ uv run tmb.py <API_URL> <TEST_DIR> --model <MODEL_NAME> [--auth_token <TOKEN>] [
 
 ### Example
 ```sh
-uv run tmb.py https://api.example.com tests --model deepseek-r1-distill-qwen-32b --auth_token my-secret-token --threads 4
+uv run tmb.py https://api.example.com examples --model deepseek-r1-distill-qwen-32b --auth_token my-secret-token --threads 4
 ```
 
 ## Test Case Format
