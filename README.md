@@ -38,6 +38,9 @@ Each test case should be a JSON file inside the test directory with the followin
 ## API Configuration
 TMB automatically appends `/v1/chat/completions` to the provided API URL. Ensure your API follows the OpenAI-style request format.
 
+## Local LLM Testing
+For testing, we used local LLMs running on our machines using [Ollama](https://ollama.com/) and [LM Studio](https://lmstudio.ai/). These tools allow for efficient and private model execution without relying on external APIs.
+
 ## Test Results
 Reading inline script metadata from `tmb.py`
 
