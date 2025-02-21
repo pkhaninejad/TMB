@@ -9,6 +9,8 @@ TrustMeBro (TMB) is a lightweight CLI tool for testing AI model responses using 
 - Supports authentication via bearer token
 - Includes a configurable request timeout
 - Summarizes test results with pass/fail counts
+- Measures response time for each test case and calculates the average response time
+- Allows specifying the AI model identifier via CLI
 
 ## Installation
 Ensure you have Python 3.12 or with [uv](https://github.com/astral-sh/uv) installed. Install dependencies:
@@ -16,12 +18,12 @@ Ensure you have Python 3.12 or with [uv](https://github.com/astral-sh/uv) instal
 ## Usage
 ### Running Tests
 ```sh
-uv run tmb.py <API_URL> <TEST_DIR> [--auth_token <TOKEN>] [--timeout <SECONDS>]
+uv run tmb.py <API_URL> <TEST_DIR> [--auth_token <TOKEN>] [--timeout <SECONDS>] [--model <MODEL_ID>]
 ```
 
 ### Example
 ```sh
-uv run tmb.py https://api.example.com tests --auth_token my-secret-token
+uv run tmb.py https://api.example.com tests --auth_token my-secret-token --model deepseek-r1-distill-qwen-32b
 ```
 
 ## Test Case Format
@@ -41,4 +43,3 @@ MIT License
 
 ## Contributions
 Feel free to submit issues and pull requests to improve the framework!
-

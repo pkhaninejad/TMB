@@ -12,15 +12,16 @@ import time
 
 class TrustMeBro:
     """A simple framework for testing AI model responses via REST API (Chat Completion)."""
-    def __init__(self, api_url, auth_token=None):
+    def __init__(self, api_url, model, auth_token=None):
         self.api_url = f"{api_url}/v1/chat/completions"
+        self.model = model
         self.auth_token = auth_token
 
     def get_response(self, prompt):
         """Send a prompt to the AI model using chat completion and return the response."""
         headers = {"Authorization": f"Bearer {self.auth_token}", "Content-Type": "application/json"} if self.auth_token else {"Content-Type": "application/json"}
         data = {
-            "model": "deepseek-r1-distill-qwen-32b",  # Default model, can be adjusted per API
+            "model": self.model,
             "messages": [{"role": "user", "content": prompt}]
         }
         start_time = time.time()
@@ -64,10 +65,11 @@ def main():
     parser = argparse.ArgumentParser(prog="TMB", description="TrustMeBro: AI Model Testing Framework")
     parser.add_argument("api_url", type=str, help="REST API URL of the AI model")
     parser.add_argument("test_dir", type=str, help="Directory containing test cases in JSON format")
+    parser.add_argument("--model", type=str, required=True, help="Model identifier")
     parser.add_argument("--auth_token", type=str, default=None, help="Optional authentication token")
     args = parser.parse_args()
     
-    framework = TrustMeBro(args.api_url, args.auth_token)
+    framework = TrustMeBro(args.api_url, args.model, args.auth_token)
     framework.run_tests(args.test_dir)
 
 if __name__ == "__main__":
