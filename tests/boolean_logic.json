@@ -1,0 +1,4 @@
+{
+    "prompt": "Is 5 greater than 3? Answer with true or false.",
+    "expected": "true"
+}
